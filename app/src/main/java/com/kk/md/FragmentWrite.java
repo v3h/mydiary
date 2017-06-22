@@ -13,7 +13,7 @@ import android.widget.TextView;
  * Created by hayim_000 on 2017-06-22.
  */
 
-public class WriteFragment extends Fragment {
+public class FragmentWrite extends Fragment {
 
     private static int id = -1;
     private TextView mTV;
@@ -21,7 +21,7 @@ public class WriteFragment extends Fragment {
     private Button mSaveBtn;
 
 
-    public WriteFragment( int id ) {
+    public FragmentWrite(int id ) {
         this.id = id;
     }
 

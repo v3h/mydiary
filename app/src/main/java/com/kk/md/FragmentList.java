@@ -5,14 +5,16 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ListView;
 
 /**
  * Created by hayim_000 on 2017-06-22.
  */
 
-public class ListFragment extends Fragment {
+public class FragmentList extends Fragment {
+    private ListView mListView;
 
-    public ListFragment () {
+    public FragmentList() {
 
     }
 

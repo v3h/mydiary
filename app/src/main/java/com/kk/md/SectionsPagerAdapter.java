@@ -17,33 +17,39 @@ public class SectionsPagerAdapter extends FragmentPagerAdapter {
     private static final String TAG = "SectionsPagerAdapter";
     private static final boolean VERBOSE = V3HV.DEBUG;
 
-    static WriteFragment mWriteFragment1;
-    static ListFragment mListFragment;
+    private static final int PAGE_WRITE = 0;
+    private static final int PAGE_LIST = 1;
+    private static final int PAGE_SETTING = 2;
+
+    private static FragmentWrite mWriteFragment;
+    private static FragmentList mListFragment;
+    private static FragmentSetting mSettingFragment;
 
     public SectionsPagerAdapter(FragmentManager fm) {
         super(fm);
-        mWriteFragment1 = new WriteFragment(1);
-        mListFragment = new ListFragment();
+
+        mWriteFragment = new FragmentWrite(1);
+        mListFragment = new FragmentList();
+        mSettingFragment = new FragmentSetting();
     }
 
     @Override
     public Fragment getItem(int position) {
         // getItem is called to instantiate the fragment for the given page.
         // Return a PlaceholderFragment (defined as a static inner class below).
-        Log.i( TAG,"getItem : " + position );
+        if( VERBOSE ) Log.i( TAG,"getItem : " + position );
 
         switch ( position ) {
-            case 0:
-                return mWriteFragment1;
-            case 1:
+            case PAGE_WRITE:
+                return mWriteFragment;
+            case PAGE_LIST:
                 return mListFragment;
-//            case 2:
-//                return mWriteFragment1;
+            case PAGE_SETTING:
+                return mSettingFragment;
             default:
                 Log.i( TAG, "unknown fragment : " + position );
         }
             return null;
-//        return PlaceholderFragment.newInstance(position + 1);
     }
 
     @Override

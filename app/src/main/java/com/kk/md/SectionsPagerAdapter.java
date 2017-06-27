@@ -24,6 +24,7 @@ public class SectionsPagerAdapter extends FragmentPagerAdapter {
     private static FragmentWrite mWriteFragment;
     private static FragmentList mListFragment;
     private static FragmentSetting mSettingFragment;
+    FragmentLogin logint; // 임시
 
     public SectionsPagerAdapter(FragmentManager fm) {
         super(fm);
@@ -31,6 +32,10 @@ public class SectionsPagerAdapter extends FragmentPagerAdapter {
         mWriteFragment = new FragmentWrite(1);
         mListFragment = new FragmentList();
         mSettingFragment = new FragmentSetting();
+
+        if( true ) {
+            logint = new FragmentLogin();
+        }
     }
 
     @Override
@@ -41,7 +46,8 @@ public class SectionsPagerAdapter extends FragmentPagerAdapter {
 
         switch ( position ) {
             case PAGE_WRITE:
-                return mWriteFragment;
+//                return mWriteFragment;
+                return logint;
             case PAGE_LIST:
                 return mListFragment;
             case PAGE_SETTING:
@@ -61,12 +67,12 @@ public class SectionsPagerAdapter extends FragmentPagerAdapter {
     @Override
     public CharSequence getPageTitle(int position) {
         switch (position) {
-            case 0:
+            case PAGE_WRITE:
                 return "SECTION 1";
-            case 1:
+            case PAGE_LIST:
                 return "SECTION 2";
-//            case 2:
-//                return "SECTION 3";
+            case PAGE_SETTING:
+                return "SECTION 3";
         }
         return null;
     }
